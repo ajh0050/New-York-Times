@@ -1,40 +1,49 @@
-// context/ArticleContext.js
-import { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
 
-// Initial state
+const ArticleStateContext = createContext();
+const ArticleDispatchContext = createContext();
+
 const initialState = {
   articles: [],
+  selectedArticle: null,
+  section: 'home',
 };
 
-// Reducer function
-const articleReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_ARTICLES':
       return { ...state, articles: action.payload };
-    // Add more actions as needed
+    case 'SET_SELECTED_ARTICLE':
+      return { ...state, selectedArticle: action.payload };
+    case 'SET_SECTION':
+      return { ...state, section: action.payload };
     default:
-      return state;
+      throw new Error(`Unknown action: ${action.type}`);
   }
 };
 
-// Create context
-const ArticleContext = createContext();
+const ArticleProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-// Create provider
-export const ArticleProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(articleReducer, initialState);
   return (
-    <ArticleContext.Provider value={{ state, dispatch }}>
-      {children}
-    </ArticleContext.Provider>
+    <ArticleStateContext.Provider value={state}>
+      <ArticleDispatchContext.Provider value={dispatch}>
+        {children}
+      </ArticleDispatchContext.Provider>
+    </ArticleStateContext.Provider>
   );
 };
 
-// Custom hook to use ArticleContext
-export const useArticles = () => {
-  const context = useContext(ArticleContext);
-  if (context === undefined) {
+const useArticles = () => {
+  const state = useContext(ArticleStateContext);
+  const dispatch = useContext(ArticleDispatchContext);
+
+  if (state === undefined || dispatch === undefined) {
     throw new Error('useArticles must be used within an ArticleProvider');
   }
-  return context;
+
+  return { state, dispatch };
 };
+
+export { ArticleProvider, useArticles };
+
