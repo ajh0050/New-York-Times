@@ -25,21 +25,19 @@ const Landing = () => {
     fetchArticles();
   }, [dispatch, state.section]);
 
-  // Function to change section state
-  const changeSection = (newSection) => {
-    dispatch({ type: 'SET_SECTION', payload: newSection });
-  };
-
   const cards = state.articles.map((article) => {
     return <Card key={article.url} article={article} />;
-    });
+  });
 
   return (
-    <div>
-      <h1>Home</h1>
-      {cards}
+    <div className="container mx-auto px-4">
+      <h1 className="text-4xl font-semibold mb-8">Home</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {cards}
+      </div>
     </div>
   );
 };
 
 export default Landing;
+
