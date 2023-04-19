@@ -89,7 +89,9 @@ const Card = ({ article }) => {
   const handleClick = (e) => {
     e.preventDefault();
     dispatch({ type: 'SET_SELECTED_ARTICLE', payload: article });
-    router.push(`/article/${encodeURIComponent(slug)}`);
+    console.log("slug", slug,)
+    console.log('encodedUri', encodeURIComponent(slug))
+    router.push(`/articles/${encodeURIComponent(slug)}`);
     console.log("i fired in the handleClick function", state.selectedArticle);
   };
 

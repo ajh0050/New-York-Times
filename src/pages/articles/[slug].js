@@ -17,17 +17,18 @@
 
 // pages/article/[slug].js
 import { useRouter } from 'next/router';
-import { useArticles } from '../../context/ArticleContext';
+import { useArticles } from '../../../context/ArticleContext';
 
 const Article = () => {
   const router = useRouter();
   const { slug } = router.query;
   const { state } = useArticles();
-  const selectedArticle = state.articles.find(article => generateSlug(article.uri) === slug);
+  // const selectedArticle = state.articles.find(article => generateSlug(article.uri) === slug);
+  const selectedArticle = state.selectedArticle
 
-  const generateSlug = (uri) => {
-    return uri.split('/').pop();
-  };
+  // const generateSlug = (uri) => {
+  //   return uri.split('/').pop();
+  // };
 
   return (
     <div>
