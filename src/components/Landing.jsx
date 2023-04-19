@@ -28,10 +28,13 @@ const Landing = () => {
   const cards = state.articles.map((article) => {
     return <Card key={article.url} article={article} />;
   });
+  const changeFirstLetterToUpperCase = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-semibold mb-8">Home</h1>
+      <h1 className="text-4xl font-semibold mb-8">{changeFirstLetterToUpperCase(state.section)}</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {cards}
       </div>
