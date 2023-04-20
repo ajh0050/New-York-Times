@@ -5,6 +5,10 @@ import Card from './Card';
 const Landing = () => {
   const { state, dispatch } = useArticles();
 
+  const handleSectionChange = (event) => {
+    dispatch({ type: 'SET_SECTION', payload: event.target.value });
+  };
+
   useEffect(() => {
     const fetchArticles = async () => {
       const url = '/api/getArticles';
@@ -15,7 +19,7 @@ const Landing = () => {
         },
         body: JSON.stringify({ section: state.section }),
       };
-      
+
       try {
         const response = await fetch(url, options);
 
@@ -39,9 +43,22 @@ const Landing = () => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
+  const sections = [
+    'arts', 'automobiles', 'books', 'business', 'fashion', 'food', 'health', 'home', 'insider', 'magazine', 'movies', 'nyregion', 'obituaries', 'opinion', 'politics', 'realestate', 'science', 'sports', 'sundayreview', 'technology', 'theater', 't-magazine', 'travel', 'upshot', 'us', 'world'
+  ];
+
   return (
-    <div className="container mx-auto px-4" style={{ minHeight: '80dvh' }}>
-      <h1 className="text-4xl font-semibold mb-8">{changeFirstLetterToUpperCase(state.section)}</h1>
+    <div className="container mx-auto px-4" style={{ minHeight: '80vh' }}>
+      <div>
+        <h1 className="text-xl font-semibold mb-2">Category</h1>
+        <select onChange={handleSectionChange} value={state.section} className="mb-8 text-black">
+          {sections.map((section) => (
+            <option key={section} value={section}>
+              {changeFirstLetterToUpperCase(section)}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {cards}
       </div>
