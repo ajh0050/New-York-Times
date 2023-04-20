@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useArticles } from '../../../context/ArticleContext';
 
 const Article = () => {
   const { state } = useArticles();
+  const [articleText, setArticleText] = useState(null);
   const selectedArticle = state.selectedArticle;
 
+  useEffect(() => {
+    if (selectedArticle) {
+      fetch('/api/articleText', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: selectedArticle.url }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setArticleText(data.articleText);
+        })
+        .catch((error) => {
+          console.error('Error calling API:', error);
+        });
+    }
+  }, [selectedArticle]);
+  
+
+
   return (
-    <div className="bg-gray-100" style={{minHeight:"85dvh"}}>
+    <div className="bg-gray-100" style={{ minHeight: "85dvh" }}>
       {selectedArticle && (
         <div className="max-w-5xl mx-auto">
           <div
@@ -33,7 +55,7 @@ const Article = () => {
             {selectedArticle.title}
           </h1>
           <p className="text-black text-lg xl:text-xl pb-8 mx-8">
-            {selectedArticle.abstract}
+            {articleText}
           </p>
         </div>
       )}
