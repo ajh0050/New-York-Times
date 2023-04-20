@@ -5,9 +5,12 @@ const Article = () => {
   const { state } = useArticles();
   const [articleText, setArticleText] = useState(null);
   const selectedArticle = state.selectedArticle;
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     if (selectedArticle) {
+      setLoading(true);
       fetch('/api/articleText', {
         method: 'POST',
         headers: {
@@ -18,13 +21,14 @@ const Article = () => {
         .then((response) => response.json())
         .then((data) => {
           setArticleText(data.articleText);
+          setLoading(false);
         })
         .catch((error) => {
           console.error('Error calling API:', error);
+          setLoading(false);
         });
     }
   }, [selectedArticle]);
-  
 
 
   return (
@@ -54,9 +58,17 @@ const Article = () => {
           <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold text-black mb-4 mx-8">
             {selectedArticle.title}
           </h1>
-          <p className="text-black text-lg xl:text-xl pb-8 mx-8">
-            {articleText}
-          </p>
+          {loading ? (
+            <div className="flex justify-center">
+              <p className="text-black text-lg xl:text-xl pb-8 mx-8">
+                Loading article text...
+              </p>
+            </div>
+          ) : (
+            <p className="text-black text-lg xl:text-xl pb-8 mx-8">
+              {articleText}
+            </p>
+          )}
         </div>
       )}
     </div>
