@@ -1,5 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
 export default async function getArticles(req, res) {
     const url = `https://api.nytimes.com/svc/topstories/v2/${req.body.section}.json?api-key=${process.env.NYT_API_KEY}`;
 
