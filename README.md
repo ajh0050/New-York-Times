@@ -67,7 +67,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Author
 
 - Adam Hughes
-  - <a href="https://github.com/" target="_blank">GitHub</a>
-  - <a href="https://www.linkedin.com/in/front-end-adam/" target="_blank">LinkedIn</a>
+  - [GitHub](https://github.com/)
+  - [LinkedIn](https://www.linkedin.com/in/front-end-adam/)
 
 
