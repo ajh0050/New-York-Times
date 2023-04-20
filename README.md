@@ -1,3 +1,9 @@
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Puppeteer](https://img.shields.io/badge/Puppeteer-40B5A4?style=for-the-badge&logo=puppeteer&logoColor=white)](https://pptr.dev/)
+[![Context API](https://img.shields.io/badge/Context_API-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/docs/context.html)
+
+
 # Next.js NY Times App by Adam Hughes
 
 Welcome to my Next.js NY Times App! This project is a responsive web application that replicates the functionality of the New York Times website. Users can browse news stories, which are displayed in cards, and filter them by categories. Clicking on a story card will redirect users to a unique path where the article details are displayed.
