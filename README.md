@@ -28,6 +28,7 @@ Welcome to my Next.js NY Times App! This project is a responsive web application
 - Built with [Next.js](https://nextjs.org/)
 - Styled using [Tailwind CSS](https://tailwindcss.com/)
 - Global state management with [Context API](https://reactjs.org/docs/context.html)
+- Scraping through [Puppeteer](https://pptr.dev/)
 
 
 ## Installation
