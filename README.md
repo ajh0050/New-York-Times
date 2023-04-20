@@ -1,38 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Puppeteer](https://img.shields.io/badge/Puppeteer-40B5A4?style=for-the-badge&logo=puppeteer&logoColor=white)](https://pptr.dev/)
+[![Context API](https://img.shields.io/badge/Context_API-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/docs/context.html)
 
-## Getting Started
 
-First, run the development server:
+# Next.js NY Times App by Adam Hughes
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Welcome to my Next.js NY Times App! This project is a responsive web application that replicates the functionality of the New York Times website. Users can browse news stories, which are displayed in cards, and filter them by categories. Clicking on a story card will redirect users to a unique path where the article details are displayed.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [Author](#author)
+
+## Features
+
+- Browse news stories displayed in cards
+- Sort news stories by categories
+- View article details on a unique path
+- Responsive design for all device sizes
+
+## Technologies
+
+- Built with [Next.js](https://nextjs.org/)
+- Styled using [Tailwind CSS](https://tailwindcss.com/)
+- Global state management with [Context API](https://reactjs.org/docs/context.html)
+- Scraping through [Puppeteer](https://pptr.dev/)
+
+
+## Installation
+
+1. Fork the Repo from the [Repository](https://github.com/ajh0050/New-York-Times)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/ajh0050/New-York-Times
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Run npm start
+   ```sh
+   npm start
+   ```
+5. Use the Link that is given in the Terminal & Open in Browser
+   ```sh
+   Example: http://localhost:3000/
+   ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Screenshots
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Desktop
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Home View
+![Home View Desktop](https://user-images.githubusercontent.com/36003417/233466978-c8d572fa-f087-4233-8c4a-d1c2d5ac53be.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Story View
+![Story View Desktop](https://user-images.githubusercontent.com/36003417/233467081-85dd1832-a66c-4997-ad77-e352d389f411.png)
 
-## Learn More
+### Mobile
 
-To learn more about Next.js, take a look at the following resources:
+#### Home View
+![Home View Mobile](https://user-images.githubusercontent.com/36003417/233467131-8568c4e2-0444-4aaa-9923-af5d94260e89.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Story View
+![Story View Mobile](https://user-images.githubusercontent.com/36003417/233467208-0818162a-3c4f-474f-949f-2fe9a9da5ce9.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
+- Adam Hughes
+  - [GitHub](https://github.com/)
+  - [LinkedIn](https://www.linkedin.com/in/front-end-adam/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
