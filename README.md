@@ -30,6 +30,8 @@ Welcome to my Next.js NY Times App! This project is a responsive web application
 - Global state management with [Context API](https://reactjs.org/docs/context.html)
 - Scraping through [Puppeteer](https://pptr.dev/)
 
+## [Deployed Link](https://new-york-times-eight.vercel.app/)
+
 
 ## Installation
 
