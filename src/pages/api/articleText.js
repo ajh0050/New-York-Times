@@ -1,5 +1,4 @@
-// import puppeteer from 'puppeteer';
-import chromium from 'chrome-aws-lambda';
+import puppeteer from 'puppeteer';
 
 
 export default async function handler(req, res) {
@@ -7,23 +6,8 @@ export default async function handler(req, res) {
     if (req.method === 'POST' && req.body.url) {
         try {
             // Launch the browser
-            //   const browser = await puppeteer.launch();
-            // const browser = await puppeteer.launch({
-            //     headless: true,
-            //     args: [
-            //       '--no-sandbox',
-            //       '--disable-setuid-sandbox',
-            //       '--disable-dev-shm-usage',
-            //       '--disable-accelerated-2d-canvas',
-            //       '--disable-gpu'
-            //     ],
-            //   });
-            const browser = await chromium.puppeteer.launch({
-                args: chromium.args,
-                defaultViewport: chromium.defaultViewport,
-                executablePath: await chromium.executablePath,
-                headless: chromium.headless,
-            });
+              const browser = await puppeteer.launch();
+ 
             // Create a new page
             const page = await browser.newPage();
             // Navigate to the desired URL
