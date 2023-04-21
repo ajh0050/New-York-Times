@@ -1,6 +1,5 @@
 export default async function getArticles(req, res) {
     const url = `https://api.nytimes.com/svc/topstories/v2/${req.body.section}.json?api-key=${process.env.NYT_API_KEY}`;
-    console.log('url:', url)
     try {
       const response = await fetch(url);
 
