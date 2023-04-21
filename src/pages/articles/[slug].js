@@ -20,7 +20,7 @@ const Article = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          setArticleText(data.articleText);
+          setArticleText(data);
           setLoading(false);
         })
         .catch((error) => {

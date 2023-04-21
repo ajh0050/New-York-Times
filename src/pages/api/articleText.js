@@ -45,7 +45,7 @@ export default async function handler(req, res) {
             await browser.close();
 
             // Send the extracted data as a JSON response
-            res.status(200).json(data);
+            res.status(200).json(data.articleText);
         } catch (error) {
             console.error('Error scraping article:', error);
             res.status(500).json({ error: 'Error scraping article' });
