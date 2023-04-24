@@ -9,24 +9,26 @@ const Article = () => {
 
 
   useEffect(() => {
-    if (selectedArticle) {
-      setLoading(true);
-      fetch('/api/articleText', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ url: selectedArticle.url }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setArticleText(data);
-          setLoading(false);
+    if (process.env.NODE_ENV === 'development') {
+      if (selectedArticle) {
+        setLoading(true);
+        fetch('/api/articleText', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ url: selectedArticle.url }),
         })
-        .catch((error) => {
-          console.error('Error calling API:', error);
-          setLoading(false);
-        });
+          .then((response) => response.json())
+          .then((data) => {
+            setArticleText(data);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error('Error calling API:', error);
+            setLoading(false);
+          });
+      }
     }
   }, [selectedArticle]);
 
@@ -58,10 +60,10 @@ const Article = () => {
           <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold text-black mb-4 mx-8">
             {selectedArticle.title}
           </h1>
-          {loading ? (
+          {loading && process.env.NODE_ENV === 'development' ? (
             <div className="flex justify-center">
               <p className="text-black text-lg xl:text-xl pb-8 mx-8">
-                Loading article text...
+                Loading article text - this may take a few seconds...
               </p>
             </div>
           ) : (
@@ -69,6 +71,11 @@ const Article = () => {
               {articleText}
             </p>
           )}
+          {process.env.NODE_ENV === 'production' && (<div className="flex justify-center">
+              <p className="text-black text-lg xl:text-xl pb-8 mx-8">
+                Run in local environment to see the article text here through the puppeteer api...
+              </p>
+            </div>)}
         </div>
       )}
     </div>
